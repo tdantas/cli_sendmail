@@ -1,9 +1,10 @@
 {
-  "name": "climailer",
+  "name": "cli_sendmail",
   "preferGlobal": "true",
   "version": "0.0.1",
-  "author": "tdantas <thiago.chapa@gmail.com>",
-  "description": "Just a kid tool to send email",
+  "author": "tdantas <thiago.teixeira.dantas@gmail.com>",
+  "description": "Just a kid tool to send email using your terminal",
+
   "dependencies" : {
     "nodemailer" : "*",
     "optimist"   : "*"
@@ -15,7 +16,6 @@
    },
 
   "license": "MIT",
-  
   "engines": {
     "node": ">=0.8"
   }

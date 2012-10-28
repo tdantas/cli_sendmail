@@ -89,15 +89,15 @@ function main() {
 			case "\n": 
 			case "\r": 
 			case "\u0004":
-			process.stdin.setRawMode(false) 
-			process.stdin.pause()
-			send({ user: (cli.user || config.user) , pass: password}) 
+  			process.stdin.setRawMode(false) 
+	  		process.stdin.pause()
+		  	send({ user: (cli.user || config.user) , pass: password}) 
 			break
 			case "\u0003":
-			process.exit()
+			  process.exit()
 			break
 			default:
-			password += char
+			  password += char
 			break
 		}
 	});
