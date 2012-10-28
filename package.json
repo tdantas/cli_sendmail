@@ -1,0 +1,22 @@
+{
+  "name": "climailer",
+  "preferGlobal": "true",
+  "version": "0.0.1",
+  "author": "tdantas <thiago.chapa@gmail.com>",
+  "description": "Just a kid tool to send email",
+  "dependencies" : {
+    "nodemailer" : "*",
+    "optimist"   : "*"
+   },
+ 
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+   },
+
+  "license": "MIT",
+  
+  "engines": {
+    "node": ">=0.8"
+  }
+}
