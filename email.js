@@ -2,7 +2,8 @@
 
 var nodemailer = require('nodemailer')
 	, cli = require('optimist').default('config', process.env['HOME'] + '/.emailrc')  	
-	.alias('s', 'subject')
+	.usage("Usage: $0 -s [subject] -b [body] -t [to] -u [ gmail account ]'")
+  .alias('s', 'subject')
 	.alias('b', 'body')
 	.alias('t', 'to')
 	.alias('a', 'attach')
@@ -10,8 +11,8 @@ var nodemailer = require('nodemailer')
 	.alias('v', 'verbose')
 	.alias('u', 'user')	
 	.argv
-, fs = require('fs')
-, config = JSON.parse(fs.readFileSync(cli.config, 'utf8'))
+ , fs = require('fs')
+ , config = JSON.parse(fs.readFileSync(cli.config, 'utf8'))
 
 function attach(options) {	
 	var attachments = []
