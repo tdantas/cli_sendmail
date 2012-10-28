@@ -13,7 +13,9 @@ npm install
 node email.js -t to -u user -b [body text] -s [subject]
 
 Quick usage:
-node email.js -t destination_email@domain.com -u thiagochapa@gmail.com 
+node email.js --to "destinationEmail@domain.com" --user "thiagochapa@gmail.com" --subject "Ping" --body "Pong" <Enter>
+Password:
+ 
 
 ````
 
