@@ -46,9 +46,8 @@ Instead of:
  * Attach your file
  * Send
 
-You can do this boring workflow on one line without boring *popups* validation
+You can do this boring workflow in one line without boring *popups* validation
 
 ````
 node email.js -a ./pictures.zip --to "myfriend@domain.com" --user "thiagochapa@gmail.com"
-
 ````
