@@ -21,7 +21,7 @@ Password:
 
 Lists
 --------------------
-With .emailrc you can create lists of emails
+With .emailrc you can predefine lists of emails
 
 ~/.emailrc
 
