@@ -19,3 +19,23 @@ Password:
 
 ````
 
+Lists
+--------------------
+With .emailrc you can create lists of emails
+
+~/.emailrc
+
+````
+{ "groups" : 
+  {
+    "friends" : ["friend1@domain.com" , "friend2@domain.com" ],
+    "family"  : ["dad@email.com", "mom@email.com"]
+  }
+}
+
+node email.js -g "friends" --user "thiagochapa@gmail.com" --subject "Soccer ?" --body "What about play soccer today ?" <Enter>
+Password:
+
+````
+
+
