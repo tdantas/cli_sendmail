@@ -12,9 +12,6 @@ var nodemailer = require('nodemailer')
  .alias('u', 'user') 
  .argv
  
- var fs = require('fs')
- , config = JSON.parse(fs.readFileSync(cli.config, 'utf8'))
-
 function attach(options) { 
   var attachments = []
   
@@ -34,19 +31,19 @@ function attach(options) {
 function to(options) {
   if( !cli.to && !cli.group ) return exit("Do you want to send this message to whom ? Use -t < email > or -g <group name> ")
   var destination = []
-  if(cli.to) destination.push(Array.isArray(cli.to) ? cli.to.join(",") : cli.to )
-  if( cli.group ) destination.push(parseGroup()) 
+  if(cli.to) destination.push( Array.isArray(cli.to) ? cli.to.join(",") : cli.to )
+  if( cli.group ) destination.push( parseGroup(cli.group) ) 
   options.to = destination.join(",")
   return options
 
-  function parseGroup() {
-    var names = Array.isArray(cli.group) ? cli.group : [cli.group] 
+  function parseGroup(group) {
+    var names = Array.isArray(group) ? group : [group] 
     var emails = [] 
     names.forEach(function(key, index){
-      var gEmails = config.groups[key]
+      var gEmails = options.config.groups[key]
     
       if(gEmails == undefined || gEmails == null ) {
-        exit("Are you sure that this group "+ key + " exist ? update your .emailrc ")
+        exit("Are you sure that this group "+ key + " exist ? update your .emailrc\n")
       }
       emails.push(gEmails.join(","))
     })
@@ -62,7 +59,7 @@ function body(options) {
 }
 
 function from(options){
-  var from = config.me;
+  var from = options.config.me;
   if(from) options.from = from
   return options
 }
@@ -72,8 +69,8 @@ function subject(options) {
   return options
 }
 
-function buildOptions(){
-  var options = {} 
+function buildOptions(config){
+  var options = { config: config } 
   to(options)
   body(options)
   subject(options)
@@ -84,6 +81,9 @@ function buildOptions(){
 }
 
 function main() {
+  var fs = require('fs')
+  , config = JSON.parse(fs.readFileSync(cli.config, 'utf8'))
+
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.setRawMode(true)  
@@ -97,7 +97,7 @@ function main() {
       case "\u0004":
         process.stdin.setRawMode(false) 
         process.stdin.pause()
-        send({ user: (cli.user || config.user) , pass: password}) 
+        send({ user: (cli.user || config.user) , pass: password}, config) 
       break
       case "\u0003":
         process.exit()
@@ -140,10 +140,10 @@ function sparkle(interval){
 
 }
 
-function send(auth) {
+function send(auth, config) {
   var smtpTransport = nodemailer.createTransport("SMTP",{ service: "Gmail", auth: auth });
   var started = sparkle()
-  smtpTransport.sendMail(buildOptions(), function(error, response){
+  smtpTransport.sendMail(buildOptions(config), function(error, response){
     sparkle(started)
     if(error){ 
       console.log(" ✘ ")
