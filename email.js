@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+var fs = require('fs')
 var nodemailer = require('nodemailer')
  , cli = require('optimist').default('config', process.env['HOME'] + '/.emailrc')   
  .usage("Usage: $0 -s [subject] -b [body] -t [to] -u [ gmail account ]'")
@@ -8,11 +9,13 @@ var nodemailer = require('nodemailer')
  .alias('t', 'to')
  .alias('a', 'attach')
  .alias('g', 'group')
+ .alias('l','listgroups')
  .alias('v', 'verbose')
  .alias('u', 'user') 
  .argv
  
-function attach(options) { 
+function attach(options) {
+   
   var attachments = []
   
   if( cli.attach ) {
@@ -59,7 +62,7 @@ function body(options) {
 }
 
 function from(options){
-  var from = options.config.me;
+  var from = options.config.label;
   if(from) options.from = from
   return options
 }
@@ -81,8 +84,15 @@ function buildOptions(config){
 }
 
 function main() {
-  var fs = require('fs')
-  , config = JSON.parse(fs.readFileSync(cli.config, 'utf8'))
+  var config = JSON.parse(fs.readFileSync(cli.config, 'utf8'))
+  
+  if(cli.listgroups || cli.l) {
+    var groups = config.groups
+    for(var keys in groups) console.log(keys)
+    return    
+  }
+  
+  console.log(config)
 
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -97,7 +107,7 @@ function main() {
       case "\u0004":
         process.stdin.setRawMode(false) 
         process.stdin.pause()
-        send({ user: (cli.user || config.user) , pass: password}, config) 
+        send({ user: ( cli.user || config.account ), pass: password }, config) 
       break
       case "\u0003":
         process.exit()
