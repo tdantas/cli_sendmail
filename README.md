@@ -15,7 +15,7 @@ node email.js -t to -u user -b [body text] -s [subject]
 Quick usage:
 node email.js --to "destinationEmail@domain.com" --user "thiagochapa@gmail.com" --subject "Ping" --body "Pong" <Enter>
 Password:
- 
+
 
 ````
 
@@ -28,7 +28,7 @@ With .emailrc you can predefine lists of emails
 ````
 { "groups" : 
   {
-    "friends" : ["friend1@domain.com" , "friend2@domain.com" ],
+    "friends" : ["mark@domain.com" , "tom@domain.com", "jane@domain.com" ],
     "family"  : ["dad@email.com", "mom@email.com"]
   }
 }
@@ -38,4 +38,17 @@ Password:
 
 ````
 
+Attachment
+--------------------------
+Instead of:
+ * Open your browser
+ * Compose Message ( Please don't forget the subject. )
+ * Attach your file
+ * Send
 
+You can do this boring workflow on one line without boring *popups* validation
+
+````
+node email.js -a ./pictures.zip --to "myfriend@domain.com" --user "thiagochapa@gmail.com"
+
+````
