@@ -1,13 +1,15 @@
 {
+  
   "name": "cli_sendmail",
   "preferGlobal": "true",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "tdantas <thiago.teixeira.dantas@gmail.com>",
   "description": "Just a kid tool to send email using your terminal",
 
   "dependencies" : {
     "nodemailer" : "*",
-    "optimist"   : "*"
+    "optimist"   : "*",
+    "growl"      : "*"
    },
  
   "devDependencies": {
