@@ -2,7 +2,7 @@
   
   "name": "emailing",
   "preferGlobal": "true",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "tdantas <thiago.teixeira.dantas@gmail.com>",
   "description": "Just a kid tool to send email using your terminal",
   
