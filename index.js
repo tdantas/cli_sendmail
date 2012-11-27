@@ -58,7 +58,6 @@ process.stdin.on('data', function (char) {
 /* Send Mail*/
 function sendMail(account, password){
   var message = new Mail(argv)
-  console.log(message.envelope)
   var interval = toggleSparkle()
   message.deliver(account, password, function(err) {
     toggleSparkle(interval)
