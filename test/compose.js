@@ -193,5 +193,29 @@ describe('Mail Compose', function(){
     mail.group = "pong@gmail.com"
     mail.valid().should.be.true
   })
+
+  it("should create a envelope with subject 'subjecting'", function() {
+    var mail = new Mail()
+    mail.subject = "subjecting"
+    mail.text = "text"      
+    var expected =   {
+        subject: "subjecting",
+        text:    "text"
+    }
+    expected.should.eql(mail.envelope)  
+  })
   
+
+  it("should create a envelope with body 'texting'", function() {
+    var mail = new Mail()
+    mail.subject = "subjecting"
+    mail.text = "texting"      
+    var expected =   {
+        subject: "subjecting",
+        text:    "texting"
+    }
+    expected.should.eql(mail.envelope)  
+  })
+
+
 })
