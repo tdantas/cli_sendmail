@@ -47,11 +47,6 @@ You can do this boring workflow in one line without boring *popups* validation
 emailing -a ./pictures.zip --to "myfriend@domain.com" --user "thiagochapa@gmail.com"
 ````
 
-Growl Support
+Growl Notifications
 -----------------------------
-To enable receive growl notification
-
-````
-Install [growlnotify](http://growl.info/extras.php#growlnotify)
-
-````
+To enable receive growl notification install [growlnotify](http://growl.info/extras.php#growlnotify).
