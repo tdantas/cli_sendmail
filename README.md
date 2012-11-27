@@ -9,7 +9,7 @@ Quick Install
 npm install -g emaling
 
 Quick usage:
-emailing -t "destination.email@domain.com" -u "thiago.chapa@gmail.com" --subject "Ping" --body "Pong" <Enter>
+emailing -t "destination.email@domain.com" --subject "Ping" --body "Pong" thiago.chapa@gmail.com <Enter>
 Password:
 
 ````
@@ -28,7 +28,7 @@ With .emailrc you can predefine lists of emails
   }
 }
 
-emailing -g "friends" --user "thiagochapa@gmail.com" --subject "Soccer ?" --body "What about play soccer today ?" <Enter>
+emailing -g "friends" --subject "Soccer ?" --body "What about play soccer today ?" thiagochapa@gmail.com <Enter>
 Password:
 
 ````
@@ -44,7 +44,7 @@ Instead of:
 You can do this boring workflow in one line without boring *popups* validation
 
 ````
-emailing -a ./pictures.zip --to "myfriend@domain.com" --user "thiagochapa@gmail.com"
+emailing -a ./pictures.zip --to "myfriend@domain.com"  --subject "Holliday Pictures"  thiagochapa@gmail.com
 ````
 
 Growl Notifications
