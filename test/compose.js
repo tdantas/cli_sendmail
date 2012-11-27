@@ -205,17 +205,4 @@ describe('Mail Compose', function(){
     expected.should.eql(mail.envelope)  
   })
   
-
-  it("should create a envelope with body 'texting'", function() {
-    var mail = new Mail()
-    mail.subject = "subjecting"
-    mail.text = "texting"      
-    var expected =   {
-        subject: "subjecting",
-        text:    "texting"
-    }
-    expected.should.eql(mail.envelope)  
-  })
-
-
 })

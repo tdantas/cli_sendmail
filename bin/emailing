@@ -5,15 +5,13 @@ var Mail = require('../lib/emailing')
   , growl = require('growl')
   , fs = require('fs')
   , argv = optimist.default('config', process.env['HOME'] + '/.emailrc')   
-    .usage("Usage: emailing -s [subject] -b [body] -t [to] -u [ gmail account ]'")
+    .usage("Usage: emailing -s [subject] -b [body] -t [to] your.email@dmain.com'")
     .alias('s', 'subject')
     .alias('b', 'text')
     .alias('t', 'to')
     .alias('c', 'cc')
     .alias('d', 'bcc')
     .alias('a', 'attachments')
-    .alias('u', 'user')
-    .demand('u')
     .alias('g', 'group')
     .argv
 
@@ -24,15 +22,16 @@ try {
     argv.group = config.groups[argv.group]
   }
   argv.from = config.sender
+  argv.user = argv._[0]
 }catch(_){}
 
 /* 
   Read the user password
 */
 
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
-process.stdin.setRawMode(true)  
+process.stdin.resume()
+process.stdin.setEncoding('utf8')
+process.stdin.setRawMode(true)
 process.stdout.write("Password: ")
 var password = "";
 process.stdin.on('data', function (char) {
@@ -52,7 +51,7 @@ process.stdin.on('data', function (char) {
         password += char
       break
   }
-});
+})
 
 /* Send Mail*/
 function sendMail(account, password){
@@ -60,7 +59,7 @@ function sendMail(account, password){
   var interval = toggleSparkle()
   message.deliver(account, password, function(err) {
     toggleSparkle(interval)
-    if(err) { growl(err.message, { title: "Mailing Fail ✘" })   }
+    if(err) { growl(err.message, { title: "Mailing Fail ✘ " })   }
     else    { growl("Message sent my Lord !", { title: "Mailing Success ✔" })}
     process.stdout.write("\n")  
     process.exit()
