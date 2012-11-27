@@ -4,7 +4,14 @@ var Mail = require('../lib/emailing')
   , optimist = require('optimist')
   , growl = require('growl')
   , fs = require('fs')
-  , argv = optimist.default('config', process.env['HOME'] + '/.emailrc')   
+  , path = require('path')
+
+
+var home =  process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME']
+  , dotf = path.join(home,'.emailrc') 
+
+
+var argv = optimist.default('config', dotf)   
     .usage("Usage: emailing -s [subject] -b [body] -t [to] your.email@dmain.com'")
     .alias('s', 'subject')
     .alias('b', 'text')
