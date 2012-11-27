@@ -30,7 +30,7 @@
   },
 
   "bin": {
-    "emailing": "index.js"
+    "emailing": "./bin/emailing"
   },
 
   "keywords": [

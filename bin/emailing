@@ -1,10 +1,11 @@
-var Mail = require('./lib/emailing')
+#!/usr/bin/env node
+
+var Mail = require('../lib/emailing')
   , optimist = require('optimist')
   , growl = require('growl')
   , fs = require('fs')
-
-var argv = optimist.default('config', process.env['HOME'] + '/.emailrc')   
-    .usage("Usage: $0 -s [subject] -b [body] -t [to] -u [ gmail account ]'")
+  , argv = optimist.default('config', process.env['HOME'] + '/.emailrc')   
+    .usage("Usage: emailing -s [subject] -b [body] -t [to] -u [ gmail account ]'")
     .alias('s', 'subject')
     .alias('b', 'text')
     .alias('t', 'to')
@@ -22,9 +23,7 @@ try {
     config.groups = config.groups || {} 
     argv.group = config.groups[argv.group]
   }
-  
   argv.from = config.sender
-
 }catch(_){}
 
 /* 
