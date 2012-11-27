@@ -21,10 +21,18 @@ With .emailrc you can predefine lists of emails
 ~/.emailrc
 
 ````
-{ "groups" : 
+{
+ "sender" : "Thiago Dantas <thiago.dantas@rupeal.com>",
+ "groups" : 
   {
-    "friends" : ["mark@domain.com" , "tom@domain.com", "jane@domain.com" ],
-    "family"  : ["dad@email.com", "mom@email.com"]
+   "family" : ["mom@rupeal.com" , "dad@rupeal.com" ],
+   "friends" : [  "messi@domain.com",
+                  "ronaldinho@domain.com", 
+                  "rivaldo@domain.com" ,
+                  "romario@domain.com",
+                  "kaka@domain.com",
+                  "neymar@domain.com"
+                 ],
   }
 }
 
