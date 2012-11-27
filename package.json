@@ -6,8 +6,6 @@
   "author": "tdantas <thiago.teixeira.dantas@gmail.com>",
   "description": "Just a kid tool to send email using your terminal",
   
-  "main": "index.js",
-  
   "repository": {
     "type": "git",
     "url": "git@github.com:tdantas/cli_sendmail.git"
