@@ -1,6 +1,6 @@
 {
-  "name": "cli_sendmail",
-  "version": "0.0.2",
+  "name": "emailing",
+  "version": "0.0.5",
   "dependencies": {
     "nodemailer": {
       "version": "0.3.31",
@@ -78,6 +78,71 @@
     },
     "growl": {
       "version": "1.6.1"
+    },
+    "prompt": {
+      "version": "0.2.8",
+      "dependencies": {
+        "pkginfo": {
+          "version": "0.2.3"
+        },
+        "read": {
+          "version": "1.0.4",
+          "dependencies": {
+            "mute-stream": {
+              "version": "0.0.3"
+            }
+          }
+        },
+        "revalidator": {
+          "version": "0.1.5"
+        },
+        "utile": {
+          "version": "0.1.6",
+          "dependencies": {
+            "async": {
+              "version": "0.1.22"
+            },
+            "deep-equal": {
+              "version": "0.0.0"
+            },
+            "i": {
+              "version": "0.3.1"
+            },
+            "mkdirp": {
+              "version": "0.3.4"
+            },
+            "ncp": {
+              "version": "0.2.6"
+            },
+            "rimraf": {
+              "version": "1.0.9"
+            }
+          }
+        },
+        "winston": {
+          "version": "0.6.2",
+          "dependencies": {
+            "async": {
+              "version": "0.1.22"
+            },
+            "colors": {
+              "version": "0.6.0-1"
+            },
+            "cycle": {
+              "version": "1.0.1"
+            },
+            "eyes": {
+              "version": "0.1.8"
+            },
+            "request": {
+              "version": "2.9.203"
+            },
+            "stack-trace": {
+              "version": "0.0.6"
+            }
+          }
+        }
+      }
     },
     "should": {
       "version": "1.2.1"

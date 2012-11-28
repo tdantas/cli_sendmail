@@ -14,7 +14,8 @@
   "dependencies" : {
     "nodemailer" : "*",
     "optimist"   : "*",
-    "growl"      : "*"
+    "growl"      : "*",
+    "prompt"     : "*"
    },
  
   "devDependencies": {
